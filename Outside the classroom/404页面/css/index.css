@@ -1,0 +1,38 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+html,body{
+	font-family: "微软雅黑";
+	font-size: 14px;
+	color: white;
+	background-color: #2068b4;
+}
+
+.error-main{
+	width:800px;
+	margin:0 auto;
+}
+
+.error-text-1{
+	font-size: 150px;
+	margin-top: 50px;
+	margin-bottom: 20px;
+}
+
+.error-text-2,.error-text-3{
+	font-size:30px;
+}
+
+.error-text-4{
+	font-size: 25px;
+	margin: 30px 0 30px 0;
+}
+.error-about-text-top,.error-about-text-down{
+	font-size: 20px;
+}
+
+.error-about{
+	display: flex;
+}
