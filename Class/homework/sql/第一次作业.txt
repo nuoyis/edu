@@ -1,0 +1,42 @@
+/*查看department表中的所有信息*/
+select *
+from department;
+/*查看course表中的所有信息*/
+select *
+from course;
+/*查看student表中的所有学生的信息*/
+select *
+from student;
+/*查看stucou表中的所有选课信息*/
+select *
+from stucou;
+/*查看student表中名字里有“晶”字的同学的全部信息*/
+select *
+from student
+where StuName like "%晶%";
+/*查看student表中名字里有“宇”的同学的全部信息*/
+select *
+from student
+where StuName like "%宇%";
+/*查看student表中姓黄的同学的全部信息*/
+select *
+from student
+where StuName like "黄%";
+/*查看部门编号为 03 的部门名称，要求列名用中文显示*/
+select DepartName as "部门编号"
+from department
+where DepartNo="03";
+/*查看部门名称中包含“工程”两个字的部门名称*/
+select DepartName as "部门编号"
+from department
+where DepartName like "%工程%";
+/*查看在“周二晚”上课的课程名称和教师，要求列名用中文显示*/
+select *
+from course
+where SchoolTime="周二晚";
+/*查看student表中的所有的班级编号，要求删除掉重复的班级编号，列名中文显示。*/
+select distinct stuNo as 班级编号 
+from student;
+/*查看course表中的所有部门编号，要求删除掉重复的部门编号，列名中文显示。*/
+select distinct DepartNo as 部门编号
+from course;
