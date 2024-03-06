@@ -24,14 +24,17 @@
 class MyClass:
     def __init__(self):
         pass
+
     def __private_method(self):
         print("这是一个私有方法")
+
     def public_method(self):
         print("这是一个公有方法")
         # 内部调用私有方法
         self.__private_method()
 
-obj2 = MyClass
+
+obj2 = MyClass()
 # 私有调用失败
 # obj2.__private_method
 obj2.public_method()
