@@ -95,3 +95,32 @@ select couname,credit,
            else '待定'
        end as '安排'
 from course;
+
+
+/*操作作业3*/
+/*1 分别显示 2,4,8 的二进制数，并完成以上3个数 按位与，按位或，的二进制结果*/
+select bin(2),bin(4),bin(8),bin(2&4),bin(4&8),bin(2&8),bin(2|4),bin(4|8),bin(2|8);
+/*2 分别显示 11的左移2位和右移2位的二进制结果*/
+select bin(11<<2),bin(11>>2);
+/*3 查询课程表中的课程信息，报名人数与限选人数之比，并请按照这个比值升序排序。*/
+select *,willnum/limitnum
+from course
+order by willnum/limitnum;
+/*4 查询选课表中2000级所有学生的选课记录，并请先按照学号升序排列，再按照志愿号升序排列。*/
+select  *
+from stucou
+order by stuno asc,randomnum asc;
+/*6 在班级表中，查询班级编号与班级名称，如果是2000级班级，显示“9.13上午8点做核酸检测”，如果是2001级班级，显示“9.13上午10点做核酸检测”，其它年级，请显示“9.13下午2点做核酸检测” ，输出结果要求先按照班级序号升序排序，然后再按照班级名称降序排序。*/
+select stuno,ClassNo,
+      case
+           when ClassNo like '2000%' then '9.13上午8点做核酸检测'
+           when ClassNo like '2001%' then '9.13上午10点做核酸检测'
+           else '9.13下午2点做核酸检测'
+       end as 班级通知
+from student
+order by ClassNo desc;
+/*7 查看 “张”“陈”“黄”同学们的基本信息，要求按照名字降序排序查询结果。*/
+select * 
+from student 
+where StuName like "陈%" or StuName like "张%" or StuName like "黄%"
+order by convert(StuName using gbk) desc
