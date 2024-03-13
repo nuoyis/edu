@@ -11,18 +11,22 @@ class Hero:
 
 
 class Garen(Hero):
-    pass
+    def attack(self, enemy):
+        enemy.life_value = enemy.life_value - self.aggressivity * 2
+        print("来自盖伦的双倍伤害")
 
 
 class Riven(Hero):
-    pass
+    def fly(self):
+        # 在子类定义新的方法
+        print("%s 正在飞!!!" % self.name)
 
 
 g = Garen("草丛伦", 120, 30)
-r = Riven("ww", 110, 33)
+r = Riven("玮", 110, 33)
 
 g.attack(r)
 r.attack(g)
-
+r.fly()
 print("%s 当前生命值 %s" % (g.name, g.life_value))
 print("%s 当前生命值 %s" % (r.name, r.life_value))
