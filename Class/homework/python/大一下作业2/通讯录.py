@@ -48,7 +48,7 @@ class database(Contacts):
         if self.name in self.gather:
             print(self.name, self.gather[self.name])
         else:
-            return False
+            print("没有找到该通讯录用户")
 
 
 if __name__ == '__main__':
@@ -58,4 +58,6 @@ if __name__ == '__main__':
     user = database("nu", 1008611)
     user.add()
     user.update("nuoo", "10086")
+    user.query()
+    user.delete()
     user.query()
