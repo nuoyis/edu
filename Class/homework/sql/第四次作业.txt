@@ -1,0 +1,53 @@
+use xk;
+/*1 按系统计课程的平均报名人数，列名请使用中文名称。*/
+select cast( avg(willnum) as decimal(5,2) ) as 平均报名人数
+from course;
+/*2 统计各系的班级数，要求显示系号，班级数量。*/
+select DepartNo,count(*) as 班级数量
+from class
+group by DepartNo;
+/*3 按系统计各系的最少报名人数，最多报名人数，平均报名人数和报名总数，并汇总显示所有系的报名总数。要求平均报名人数保留2位小数。*/
+select kind,max(willnum) as 最大报名人数,min(willnum) as 最小报名人数,sum(willnum) as 报名总数
+from course
+group by kind;
+/*4 请在选课表中，统计每门课程的选课记录条数。*/
+select stuno, count(CouNo) as 选课记录
+from stucou
+where state = '报名'
+group by stuno;
+/*5 请分别统计各系课程的最大报名人数。*/
+select StuNo, count(StuNo) as 最大报名人数
+from stucou
+where state = '报名' and StuNo like '000000%'
+group by StuNo;
+/*6 请分别统计各系人文类课程的平均学分，并保留1位小数点。*/
+select  DepartNo as 系别编号, cast(avg(Credit) as decimal(5,1)) as 票据法
+from course
+where kind like "人文"
+group by DepartNo;
+/*7 请分别统计各系的平均学分大于1.5的课程的总数，并按照课程总数升序排序。*/
+select kind as 系别名称, count(*) as 课程总数
+from course
+group by kind
+having avg(Credit) > 1.5
+order by count(*);
+/*8 请统计2001级各班的学生总数，并按照学生总数降序排列。*/
+select Classno,count(Classno) as 学生总数
+from student
+where ClassNo like '2001%'
+group by ClassNo
+order by Classno desc;
+/*9 查看02系各类课程的限选总人数。*/
+select DepartNo as 系别编号, sum(LimitNum) as 限选总人数
+from course
+group by DepartNo;
+/*10 查看管理类各系课程的报名总人数。*/
+select *
+from class
+where ClassName like '%管理';
+/*11 统计StuNo1,00000002,00000003,00000004,00000005 同学各自选修了几门课程。*/
+select StuNo,count(StuNo) as 选修课数量
+from stucou
+where StuNo like '0000000%'
+group by StuNo
+having StuNo <= '00000005';
