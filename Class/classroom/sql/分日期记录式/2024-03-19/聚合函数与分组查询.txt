@@ -1,0 +1,55 @@
+/*聚合函数与分组查询
+教材128页 聚合函数: count
+难点1: 聚合函数 中count 与 sum 区别
+count 数行数，数几行(只要出现1行，算1)
+sum 求和 数值型 
+出现以下关键词: 各，按..，分别，每..
+
+1.统计课程表中共有多少门选修课 */
+select count(*) as 课程总数
+from course;
+/*2 查看课程表中 总共能提供多少位同学选修课程 */
+select sum(limitnum) as 选修课程支撑总人数
+from course;
+/*3 课程表中，最少报名人数，最多报名人数，平均报名人数*/
+select max(willnum),min(willnum),
+       cast( avg(willnum) as decimal(5,2) )
+from course;
+/*4 按课程类别分组 统计 各类课程的门数 */
+select kind, count(*) as 各类课程的门数
+from course
+group by kind;
+/*5 按课程类别分组 统计各类课程的门数 并给出总门数 */
+select kind,count(*) as 各类课程的门数
+from course
+group by kind with rollup;
+/*6 查看报名人数大于15的各类课程的
+最少报名人数和最多报名人数*/
+select kind,max(willnum) as 最大报名人数,min(willnum) as 最小报名人数
+from course
+where willnum > 15
+group by kind;
+
+/*7 查看报名人数大于15 并且 每组平均报名人数大于30的
+课程类别和各组的平均报名人数*/
+/* 报名人数大于15：分组之前的筛选:where
+   每组平均报名人数：分组之后的筛选:having 
+   where: 不能引导聚合函数。 having 可以引导聚合函数
+   
+   */
+
+select kind,avg(willnum) as 各类课程的平均报名人数
+from course
+where willnum > 15
+group by kind
+having avg(willnum) > 30;
+
+/*8 按照学号分组显示 选课表中，状态为"报名"，的学生选课门数，查询结果按照学号升序排序*/
+/*8 统计 各个同学的选课门数。
+状态 = 报名 分组前筛选
+分组标准：学号 */
+select stuno, count(stuno) as 各个同学的选课总门数
+from stucou
+where state = '报名'
+group by stuno
+order by stuno;
