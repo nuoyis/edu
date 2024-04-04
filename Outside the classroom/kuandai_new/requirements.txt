@@ -1,0 +1,2 @@
+DrissionPage~=4.0.4.21
+selenium~=4.19.0
