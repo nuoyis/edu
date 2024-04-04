@@ -1,0 +1,9 @@
+{
+  "name":"随机二次元图片",
+  "dz":"https://server-api.nuoyis.net/acg",
+  "cs":"<li>json(可填) yasuo(压缩版本值为1)",
+  "gg":"返回图片一张(源已切换cloudflare pages,比较卡慢)",
+  "sl":"请求地址?type=json",
+  "sj":"返回数据请自主测试，有问题联系QQ:914205978",
+  "state":"正常"
+}
