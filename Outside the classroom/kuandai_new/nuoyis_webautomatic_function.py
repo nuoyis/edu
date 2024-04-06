@@ -10,7 +10,7 @@ class lianwang:
     def geturl(self, url):
         try:
             http = urllib3.PoolManager()
-            http.request('GET', url, timeout=(3, 5))
+            http.request('GET', url)
             return 1
         except Exception as e:
             return 0
@@ -18,7 +18,7 @@ class lianwang:
     def touoptions(self):
         self.options.set_argument('--incognito')
         self.options.set_argument('--no-sandbox')
-        self.options.set_argument('--headless')
+        self.options.headless(True)
         self.options.set_argument('--disable-gpu')
         self.options.set_argument('--ignore-certificate-errors')
 
@@ -56,22 +56,22 @@ class lianwang:
             exit(1)
 
     def find(self, text):
-        if self.page.ele('text'):
+        if self.page.ele(text):
             return True
         else:
             return False
 
     def shell(self, nuotype, text1, text2=''):
-        try:
-            if nuotype == 'click':
-                self.page.ele(text1).click()
-            elif nuotype == 'element':
-                self.page.ele(text1).input(text2)
-            elif nuotype == 'clear':
-                self.page.ele(text1).clear()
-        except Exception as e:
-            print("执行过程中出现错误，请重试")
-            exit(1)
+        # try:
+        if nuotype == 'click':
+            self.page.ele(text1).click()
+        elif nuotype == 'element':
+            self.page.ele(text1).input(text2)
+        elif nuotype == 'clear':
+            self.page.ele(text1).clear()
+        # except Exception as e:
+        #     print("执行过程中出现错误，请重试")
+        #     exit(1)
 
     def closeurl(self):
         self.page.close()
