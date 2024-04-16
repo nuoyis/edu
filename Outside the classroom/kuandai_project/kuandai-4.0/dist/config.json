@@ -1,0 +1,10 @@
+{
+  "login_check": "xpath://html/body/div/div/div[3]/form/button",
+  "login_password": "xpath:/html/body/div/div/div[3]/form/input[2]",
+  "login_user": "xpath:/html/body/div/div/div[3]/form/input[1]",
+  "logout": "xpath:/html/body/div/div[1]/div[3]/div[5]/input",
+  "loop": "1",
+  "xiaoyuanpassword": "182210",
+  "xiaoyuanurl": "http://172.17.1.2",
+  "xiaoyuanusername": "230303015"
+}
