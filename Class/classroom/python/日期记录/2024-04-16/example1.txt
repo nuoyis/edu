@@ -1,0 +1,4 @@
+名称 类型 绝对路径 创建时间 文件大小
+2.py 文件 E:\Github\edu\Class\classroom\python\日期记录\2024-04-16\2.py Tue Apr 16 11:01:07 2024 1.81KB 
+example1.txt 文件 E:\Github\edu\Class\classroom\python\日期记录\2024-04-16\example1.txt Tue Apr 16 10:33:56 2024 0.29KB 
+main.py 文件 E:\Github\edu\Class\classroom\python\日期记录\2024-04-16\main.py Tue Apr 16 10:18:22 2024 1.75KB 
